@@ -104,3 +104,19 @@ nav > a {
 .choosed_element {
     border: 3px solid black;
 }
+
+.posts_block {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.posts_block h2 {
+    text-align: center;
+}
+
+.posts_block-container > * {
+    margin: 5px;
+    padding: 10px;
+    background-color: rgb(231, 231, 231);
+    border-radius: 5px;
+}

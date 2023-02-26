@@ -1,7 +1,7 @@
 
 // My game
 const getRundomNumInRange = (min, max) => {
-    const randomNum = (Math.random() * (max - min) + min ).toFixed(0)
+    const randomNum = (Math.random() * (max - min) + min).toFixed(0)
     return randomNum
 }
 
@@ -85,4 +85,76 @@ for (let i = 0; i < choosedEl.length; i++) {
     choosedEl[i].addEventListener("click", eventFunc)
 }
 // choosedEl[2].removeEventListener("click", eventFunc)
+
+
+
+
+
+// const timeIsOver = () => {
+//     alert("Время вышло!")
+// }
+
+// setTimeout(timeIsOver, 2000)
+
+// const alarm = setInterval(timeIsOver, 3000)
+
+// const alarm = setInterval(()=> {
+//     let wantToSleep = confirm("Хотите ли вы спать?")
+//     if (wantToSleep) {
+//         console.log("tic")
+//     } else {
+//         clearInterval(alarm)
+//     }
+// }, 3000)
+
+const postsBlock = document.querySelector(".posts_block-container")
+const showPostsBTN = document.querySelector(".posts_block button")
+
+
+function addPost(title, body) {
+    const postTitle = document.createElement("h3")
+    const postBody = document.createElement("span")
+    const postItem = document.createElement("p")
+
+    postTitle.innerText = title
+    postBody.innerText = body
+
+    postItem.append(postTitle, postBody)
+    postsBlock.append(postItem)
+}
+
+function getPosts() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res => res.json())
+    .then(data => {
+        for (item of data) {
+            addPost(item.title, item.body)
+        }
+    })
+    .catch(err => console.log(err.message))
+}
+
+// function createPost(title, body, userId) {
+//     fetch("https://jsonplaceholder.typicode.com/posts", {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             title: title,
+//             body: body,
+//             userId: userId,
+//         }),
+//         headers: {
+//             'Content-type': 'application/json; charset=UTF-8',
+//         },
+//     })
+//     .then(res => {
+//         console.log(res)
+//         res.json()
+//     })
+//     .catch(err => console.log(err.message))
+
+// }
+
+// createPost("title", "body", 15)
+
+showPostsBTN.onclick = getPosts
 
