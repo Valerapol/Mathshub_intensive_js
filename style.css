@@ -25,6 +25,11 @@ nav > a {
     padding: 0 30px;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+}
+
 .about_us {
     display: flex;
     justify-content: center;
