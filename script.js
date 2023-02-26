@@ -156,5 +156,6 @@ function getPosts() {
 
 // createPost("title", "body", 15)
 
-showPostsBTN.onclick = getPosts
+// showPostsBTN.onclick = getPosts
+getPosts()
 
